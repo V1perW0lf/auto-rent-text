@@ -11,8 +11,8 @@ const server = http.createServer((request, response) => {
     request.on('data', (chunk) => {
       body.push(chunk);
   }).on('end', () => {
-    console.log(body);
     body = Buffer.concat(body).toString();
+    console.log(body);
     const length = "Total Amount: ".length
     const chargeAmountBegInd = body.indexOf("Total Amount:") + length;
     const chargeAmountEndInd = body.indexOf("RealPage Payments Services LLC - 2201 Lakeside Blvd., Richardson, TX 75082 (855) 473-7729") - 4;
