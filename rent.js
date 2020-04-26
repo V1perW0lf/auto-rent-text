@@ -15,7 +15,7 @@ const server = http.createServer((request, response) => {
     const length = "Total Amount: ".length
     const chargeAmountBegInd = body.indexOf("Total Amount:") + length;
     console.log("beg ind: " + chargeAmountBegInd);
-    const chargeAmountEndInd = body.indexOf("RealPage Payments Services LLC - 2201 Lakeside Blvd., Richardson, TX 75082 (855) 473-7729") - 4;
+    const chargeAmountEndInd = body.indexOf("*RealPage Payments Services LLC - 2201 Lakeside Blvd., Richardson, TX 75082") - 4;
     console.log("end ind: " + chargeAmountEndInd);
     const chargeAmount = parseFloat(body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""));
     console.log("before parsefloat: " + body.substring(chargeAmountBegInd + 1, chargeAmountEndInd))
