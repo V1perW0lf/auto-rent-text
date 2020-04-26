@@ -11,6 +11,7 @@ const server = http.createServer((request, response) => {
     request.on('data', (chunk) => {
       body.push(chunk);
   }).on('end', () => {
+    console.log(body);
     body = Buffer.concat(body).toString();
     const length = "Total Amount: ".length
     const chargeAmountBegInd = body.indexOf("Total Amount:") + length;
