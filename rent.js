@@ -24,8 +24,8 @@ const server = http.createServer((request, response) => {
     client.messages
     .create({
       body: 'Hey Blake! This is how much you should PayPal CJ: $' + blakePayPal,
-      from: '+13344633501',
-      to: '+19369000356'
+      from: process.env.twilioNumber,
+      to: process.env.blakeNumber
     })
     response.write(blakePayPal.toString());
     response.end();
