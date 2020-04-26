@@ -1,6 +1,4 @@
 const http = require("http");
-const port = 6969;
-const hostname = "http://localhost";
 
 const accountSid = process.env.accountSid;
 const authToken = process.env.authToken;
@@ -35,6 +33,4 @@ const server = http.createServer((request, response) => {
 }
 });
 
-server.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+server.listen(process.env.PORT || 5000);
