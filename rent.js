@@ -12,16 +12,18 @@ const server = http.createServer((request, response) => {
       body.push(chunk);
   }).on('end', () => {
     body = Buffer.concat(body).toString();
-    console.log(body);
     const length = "Total Amount: ".length
     const chargeAmountBegInd = body.indexOf("Total Amount:") + length;
     const chargeAmountEndInd = body.indexOf("RealPage Payments Services LLC - 2201 Lakeside Blvd., Richardson, TX 75082 (855) 473-7729") - 4;
     const electricityTotal = 140;
     const chargeAmount = parseFloat(body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""));
+    console.log("before parsefloat: " + body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""))
+    console.log("after parsefloat: " + chargeAmount)
     const internetAmountPerPerson = 21;
     const petFee = 50;
     const electricityPerPerson = 70;
     const blakePayPal = (chargeAmount + electricityTotal) - (((chargeAmount - petFee) / 2) + internetAmountPerPerson + electricityPerPerson);
+    console.log("blakepaypal: " + blakePayPal)
     client.messages
     .create({
       body: 'Hey Blake! This is how much you should PayPal CJ: $' + blakePayPal,
