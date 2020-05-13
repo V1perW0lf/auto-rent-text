@@ -18,7 +18,7 @@ const server = http.createServer((request, response) => {
     const chargeAmount = parseFloat(body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""));
     const internetAmountPerPerson = 21;
     const petFee = 50;
-    const electricityTotal = 140;
+    const electricityTotal = 151;
     const electricityPerPerson = electricityTotal / 2;
     const blakePayPal = Math.round((chargeAmount + electricityTotal) - (((chargeAmount - petFee) / 2) + internetAmountPerPerson + electricityPerPerson)) / 100;
     client.messages
