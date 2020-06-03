@@ -38,7 +38,8 @@ const server = http.createServer((request, response) => {
     }).on('end', () => {
       body = Buffer.concat(body).toString();
       process.env.electricity = body;
-  })
+    })
+  }
 });
 
 server.listen(process.env.PORT || 5000);
