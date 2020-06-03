@@ -38,6 +38,8 @@ const server = http.createServer((request, response) => {
     }).on('end', () => {
       body = Buffer.concat(body).toString();
       process.env.electricity = body;
+      response.write("Electricity has been changed to " + body);
+      response.end();
     })
   }
 });
