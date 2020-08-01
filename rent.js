@@ -14,7 +14,7 @@ const server = http.createServer((request, response) => {
       body = Buffer.concat(body).toString();
       const length = "Total Amount: ".length
       const chargeAmountBegInd = body.indexOf("Total Amount:") + length;
-      const chargeAmountEndInd = body.indexOf("*RealPage Payments Services LLC - 2201 Lakeside Blvd., Richardson, TX 75082") - 2;
+      const chargeAmountEndInd = body.indexOf("RealPage Payments Services LLC - 2201 Lakeside Blvd., Richardson, TX 75082") - 2;
       const chargeAmount = parseFloat(body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""));
       const internetAmountPerPerson = 21;
       const petFee = 50;
