@@ -23,7 +23,7 @@ const server = http.createServer((request, response) => {
       const blakePayPal = ((chargeAmount + electricityTotal) - (((chargeAmount - petFee) / 2) + internetAmountPerPerson + electricityPerPerson)).toFixed(2);
       client.messages
       .create({
-        body: 'Hey Blake! This is how much you should PayPal CJ: $' + "chargeAmount: " + chargeAmount + ", blakePayPal:  " + blakePayPal,
+        body: 'Hey Blake! This is how much you should PayPal CJ: $' + blakePayPal,
         from: process.env.twilioNumber,
         to: process.env.blakeNumber
       })
