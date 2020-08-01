@@ -13,9 +13,9 @@ const server = http.createServer((request, response) => {
     }).on('end', () => {
       body = Buffer.concat(body).toString();
       const length = "Total Amount: ".length;
-      const chargeAmountBegInd = body.indexOf("Total Amount:");// + length;
+      const chargeAmountBegInd = body.indexOf("Total Amount:") + length;
       const chargeAmountEndInd = chargeAmountBegInd + 3;
-      const chargeAmount = body.substring(chargeAmountBegInd + 1, chargeAmountEndInd); //.replace(",", "");
+      const chargeAmount = body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", "");
       const internetAmountPerPerson = 21;
       const petFee = 50;
       const electricityTotal = parseFloat(process.env.electricity);
@@ -23,7 +23,7 @@ const server = http.createServer((request, response) => {
       const blakePayPal = ((chargeAmount + electricityTotal) - (((chargeAmount - petFee) / 2) + internetAmountPerPerson + electricityPerPerson)).toFixed(2);
       client.messages
       .create({
-        body: 'Hey Blake! This is how much you should PayPal CJ: $' + chargeAmount + ".",
+        body: 'Hey Blake! This is how much you should PayPal CJ: $' + chargeAmount + '.',
         from: process.env.twilioNumber,
         to: process.env.blakeNumber
       })
