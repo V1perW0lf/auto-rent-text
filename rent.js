@@ -15,7 +15,7 @@ const server = http.createServer((request, response) => {
       const length = "Total Amount: ".length
       const chargeAmountBegInd = body.indexOf("Total Amount:") + length;
       const chargeAmountEndInd = chargeAmountBegInd + 5;
-      const chargeAmount = parseFloat(body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""));
+      const chargeAmount = body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", "");
       const internetAmountPerPerson = 21;
       const petFee = 50;
       const electricityTotal = parseFloat(process.env.electricity);
