@@ -12,8 +12,8 @@ const server = http.createServer((request, response) => {
       body.push(chunk);
     }).on('end', () => {
       body = Buffer.concat(body).toString();
-      const length = '<td>Total Amount:</td><td style="color:#616161">$'.length
-      const chargeAmountBegInd = body.indexOf('<td>Total Amount:</td><td style="color:#616161">$') + length;
+      const length = 'Total Amount:'.length
+      const chargeAmountBegInd = body.indexOf('Total Amount:') + length;
       const chargeAmountEndInd = chargeAmountBegInd + 4;
       const chargeAmount = body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", "");
       const internetAmountPerPerson = 21;
