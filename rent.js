@@ -21,7 +21,7 @@ const server = http.createServer((request, response) => {
       const petFee = 50;
       const electricityTotal = parseFloat(process.env.electricity);
       const electricityPerPerson = electricityTotal / 2;
-      const blakePayPal = ((chargeAmount2 + electricityTotal) - (((chargeAmount - petFee) / 2) + internetAmountPerPerson + electricityPerPerson)); //.toFixed(2);
+      const blakePayPal = ((chargeAmount2 + electricityTotal) - (((chargeAmount - petFee) / 2) + internetAmountPerPerson + electricityPerPerson)).toFixed(2);
       client.messages
       .create({
         body: 'Hey Blake! This is how much you should PayPal CJ: $ chargeAmount: ' + chargeAmount + ',blakePayPayl: ' + blakePayPal,
