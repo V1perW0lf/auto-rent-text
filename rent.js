@@ -14,7 +14,7 @@ const server = http.createServer((request, response) => {
       body = Buffer.concat(body).toString();
       const length = 'Total Amount:'.length
       const chargeAmountBegInd = body.indexOf('Total Amount:') + length + 52;
-      const chargeAmountEndInd = chargeAmountBegInd + 7;
+      const chargeAmountEndInd = chargeAmountBegInd + 9;
       const chargeAmount = body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""); //parseFloat()
       const internetAmountPerPerson = 21;
       const petFee = 50;
