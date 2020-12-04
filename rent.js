@@ -13,8 +13,8 @@ const server = http.createServer((request, response) => {
     }).on('end', () => {
       body = Buffer.concat(body).toString();
       const length = 'Total Amount:'.length
-      const chargeAmountBegInd = body.indexOf('Total Amount:') + length + 54; //41 for prod, 54 for testing
-      const chargeAmountEndInd = chargeAmountBegInd + 7; //8 for prod, 7 for testing
+      const chargeAmountBegInd = body.indexOf('Total Amount:') + length + 41; //41 for prod, 54 for testing
+      const chargeAmountEndInd = chargeAmountBegInd + 8; //8 for prod, 7 for testing
       const chargeAmount = body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""); //parseFloat()
       const chargeAmount2 = parseFloat(body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""));
       const internetAmountPerPerson = 21;
