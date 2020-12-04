@@ -13,7 +13,7 @@ const server = http.createServer((request, response) => {
     }).on('end', () => {
       body = Buffer.concat(body).toString();
       const length = 'Total Amount:'.length
-      const chargeAmountBegInd = body.indexOf('Total Amount:') + 52 //41 for prod, 52 for testing remove the length too
+      const chargeAmountBegInd = body.indexOf('Total Amount:') + 51 //41 for prod, 52 for testing remove the length too
       const chargeAmountEndInd = chargeAmountBegInd + 8; //8 for prod, 7 for testing
       const chargeAmount = body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""); //parseFloat()
       const chargeAmount2 = parseFloat(body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""));
