@@ -18,7 +18,7 @@ const server = http.createServer((request, response) => {
       const chargeAmount = body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""); //parseFloat()
       const chargeAmount2 = parseFloat(body.substring(chargeAmountBegInd + 1, chargeAmountEndInd).replace(",", ""));
       const internetAmountPerPerson = 21;
-      const petFee = 50;
+      const petFee = 25;
       const electricityTotal = parseFloat(process.env.electricity);
       const electricityPerPerson = electricityTotal / 2;
       const blakePayPal = ((chargeAmount2 + electricityTotal) - (((chargeAmount - petFee) / 2) + internetAmountPerPerson + electricityPerPerson)).toFixed(2);
